@@ -1,58 +1,168 @@
 # OnTradeSkills
 
-Claude Code plugin for on-trade spirits sales teams. Operates a structured Obsidian vault in your current working directory (override with `$ONTRADE_VAULT`) covering brands, products, venues, groups, distributors, and contracts. 
+**Your AI sidekick for on-trade spirits sales.**
 
-This plugin is supposed to be personalised by you, it's not designed to accommodate everyone's workflows out-the-box. Please personalise it to your needs by asking Claude to make changes to the skills and vault. 
+Prospect a city. Analyse a cocktail menu against your portfolio. Drop in a 30-page contract and get the financials calculated. Add a whole brand from a single product photo. Pull a monthly activity report. All by chatting with Claude.
 
-## Install
+OnTradeSkills is a free, open-source plugin built specifically for spirits sales teams selling into the on-trade. You don't need to be technical. You don't need to write code. You just need ten minutes and a laptop.
+
+> Watch the 3-minute demo: [YouTube link goes here]
+
+---
+
+## What it can do
+
+**Prospect a whole city in seconds.** Type `/discover cocktail bars in Manchester` and Claude finds venues that match your ICP, writes a profile for each one, and ranks them in a discoveries dashboard. Click into any profile to see Claude's notes and the venue plotted on a map.
+
+**Analyse any cocktail menu for portfolio fit.** Paste a bar's drinks-menu URL and Claude reads every cocktail, works out which of your products fit, and writes a placement plan. You see exactly which serves you should pitch and why.
+
+**Upload a contract and get the financials worked out.** Drag in a PDF or Word doc. Claude pulls out the parties, products, supports, volumes, and dates, then calculates profitability using the real margins you've stored against each distributor. The original file is saved to your vault and the contract gets linked to every venue, product, and distributor it touches.
+
+**Add a brand from a single image.** Take a photo of a brand's product range and ask Claude to add it. New brand page, product pages, and pricing all created in seconds. No more admin.
+
+**Generate reports on demand.** Ask for a monthly activity summary, a top-10 venue list, a deck for tomorrow's pitch. Claude reads your vault and writes it for you.
+
+**Map a whole pub group.** "Find every venue in the Drake & Morgan group and add them to my vault." Done. With a parent page, links to all 16 venues, and a map.
+
+---
+
+## What you'll need
+
+Three things, one of them free, one of them a paid subscription, and ten minutes.
+
+1. **Claude Code**, the AI assistant that runs the skills.
+   - Get it: [https://claude.com/claude-code](https://claude.com/claude-code)
+   - Claude Code is included with the **Claude Pro** subscription, which costs **£15 (+VAT) per month**. Sign up here: [https://www.claude.com/pricing](https://www.claude.com/pricing)
+2. **Obsidian**, the free notes app where your knowledge vault lives. This is where every brand, venue, contract, and dashboard ends up. You get a beautiful linked database for free.
+   - Download it: [https://obsidian.md](https://obsidian.md)
+3. **A laptop** (Mac or Windows) and **ten minutes** to install.
+
+---
+
+## Install (one command)
+
+After you've installed Claude Code and Obsidian, open the **Terminal** app on your Mac (search for "Terminal" in Spotlight) and paste in this single line, then press enter:
 
 ```bash
-~/.claude/skills/ontradeskills/setup.sh
+curl -fsSL https://raw.githubusercontent.com/dg405/ontradeskills/main/install.sh | bash
 ```
 
-Symlinks each skill into `~/.claude/skills/` so the slash commands are picked up by Claude Code globally.
+**What this does, in plain English:**
+- Downloads the OnTradeSkills plugin into a hidden folder in your home directory.
+- Links each skill into Claude Code so it can find them.
+- Tells you when it's done.
 
+**Then quit and reopen Claude Code** so it picks up the new skills.
 
-## How to use it
+If you're on Windows, install [Git for Windows](https://git-scm.com/download/win) first, then run the same command in Git Bash.
 
-Step 1: Install the skills (quit and restart Claude Desktop to see the new skills)
-Step 2: Create a new working directory folder on your laptop
-Step 3: Open the new working directory folder in a new Claude Code session
-Step 4: Run the /init-ontrade skill to initialise the vault in your working directory
-Step 5: Start running the skills to add content and build the knowledge base
+---
 
-## Recommendations
+## First run
 
-- Instead of updating anything in Obsidian manually, always ask Claude to add/link/edit pages. It keeps the content more structured and consistent. 
-- Ask Claude to add and update the skill files/templates/pages if it's not working exactly how you want it to. Claude is very good at making precise edits which will make your skills more personalised (e.g. change the way Claude analyses contracts or cocktail menus). A good example of this is that when I wanted long/lat coords on every location I just told Claude to update the skills/templates and existing pages and it did all of it successfully in seconds. 
+1. **Make a new folder on your laptop.** This will be your vault. Anywhere works. For example:
+   ```
+   ~/Documents/MyOnTradeVault
+   ```
+2. **Open that folder in Claude Code.** Right-click the folder, "Open in Terminal", then run `claude`. Or open Claude Code and point it at the folder.
+3. **Type `/init-ontrade` and press enter.** Claude builds out the vault scaffolding (folders, templates, dashboards) inside that folder.
+4. **Open the same folder in Obsidian.** In Obsidian, click "Open folder as vault" and pick the folder you just made. Follow the on-screen checklist to install the **Dataview** and **Map View** community plugins. Both take 30 seconds.
 
-## Commands
+That's it. You're ready.
+
+---
+
+## Try it out
+
+Three things to try first, lifted straight from the demo. Just type these into Claude Code:
+
+```
+/discover cocktail bars in Manchester serving premium rum
+```
+
+```
+/analysemenu https://www.example-bar.com/cocktails
+```
+
+```
+/uploadcontract
+```
+(then drag your contract PDF into the Claude Code window)
+
+Watch the magic. Then open Obsidian to see the new pages, dashboards, and maps.
+
+---
+
+## Make it yours
+
+This is the bit nobody else can do.
+
+**The skills are just text files. Claude can edit them.** If contracts aren't analysed the way you want, tell Claude. If you want a new dashboard, tell Claude. If you want a new skill (say, `/competitorcheck` for monitoring competitor placements), tell Claude.
+
+Examples of things you can ask Claude to do:
+
+- "Update the venue template to include a 'last-visit' date field, and add it to every existing venue page."
+- "Change the contract analysis to also flag any minimum stock levels above 50 cases."
+- "Add a new dashboard that ranks distributors by total profit across all active contracts."
+- "Make /discover also pull each venue's Instagram handle when it can find one."
+
+You don't have to know how to code. You describe what you want; Claude makes the edit; you watch it work.
+
+---
+
+## What gets created
+
+Inside whatever folder you ran `/init-ontrade` in:
+
+```
+your-folder/
+  Brands/        One folder per brand, with a brand page and product pages
+  Venues/        One page per venue, with location, contact, and analysis
+  Groups/        Pub groups (Drake & Morgan, Young's, etc.) with their venues
+  Distributors/  One page per distributor, with margins and product lists
+  Contracts/     One page per contract, with financial calculations
+    raw/         The original PDFs and Word docs
+  Templates/     The blank templates Claude uses for new pages
+  Dashboards/    Live dashboards: Discoveries, Pipeline, Expiring Contracts, etc.
+  Attachments/   Any other files
+```
+
+Everything is just Markdown text files. You own them. You can copy them, back them up, sync them to iCloud, share them with your team, anything.
+
+---
+
+## Optional power-ups
+
+**Better PDF and Word support.** Install `poppler` and `pandoc` so Claude can read more contract formats:
+
+```bash
+brew install poppler pandoc
+```
+
+(If you don't have Homebrew, install it from [https://brew.sh](https://brew.sh) first.)
+
+**Connect your other tools.** Claude Code supports connectors for Gmail, PowerPoint, Word, Google Drive, your CRM, and more. Once connected, the skills can read your emails, generate decks, update your CRM, and so on. Set them up from inside Claude Code.
+
+---
+
+## Help
+
+- **Stuck?** Ask Claude. Seriously. Open Claude Code and describe what's not working. It can read its own skill files and fix them.
+- **Found a bug or have a feature request?** Open an issue: [https://github.com/dg405/ontradeskills/issues](https://github.com/dg405/ontradeskills/issues)
+- **Want to share what you've built?** Pull requests welcome. The whole point is that everyone can fork this and make it their own.
+
+---
+
+## Commands at a glance
 
 | Command | What it does |
 |---------|--------------|
-| `/init-ontrade` | Bootstrap the vault: folders, templates, dashboards, git init. Idempotent. |
-| `/discover <ICP or area>` | Find new venues matching an ICP, write stubs into `Venues/` and rank in `Dashboards/Discoveries.md`. |
-| `/analysemenu <venue-or-url>` | Fetch + analyse a venue's drinks menu (4-tier reliability ladder), append a dated analysis block to the venue note, and rank placement opportunities for your portfolio. Auto-creates a venue stub if given a URL. |
-| `/uploadcontract [path-or-attachment]` | Save a contract PDF/docx into `Contracts/raw/`, extract YAML fields via LLM, create the contract note, and backlink venue/distributor/products. |
-| `/analysecontract <contract>` | Re-read a contract note + raw file, append a dated risk/review block. |
+| `/init-ontrade` | One-time setup. Creates the vault scaffolding in the current folder. Safe to re-run. |
+| `/discover <ICP or area>` | Finds new venues that match your criteria, writes profiles, ranks them. |
+| `/analysemenu <venue or URL>` | Reads a cocktail menu, identifies opportunities for your portfolio, ranks placements. |
+| `/uploadcontract` | Ingests a contract PDF or Word doc, extracts the details, calculates profitability, creates all the links. |
+| `/analysecontract <contract>` | Re-reads an existing contract and writes a fresh risk and financials review. |
 
-## Vault layout
+---
 
-```
-<your-folder>/
-  Brands/<Brand Name>/<brand>.md, <product>.md ...
-  Venues/<Venue>.md
-  Groups/<Group>.md
-  Distributors/<Distributor>.md
-  Contracts/<contract>.md
-  Contracts/raw/<original-files>
-  Templates/, Dashboards/, Attachments/
-```
-
-Create a new folder, open Claude Code inside it, then run `/init-ontrade`.
-
-## Requirements
-
-- Obsidian (with the [Dataview](https://blacksmithgu.github.io/obsidian-dataview/) community plugin installed for dashboards and the [Map View](obsidian://show-plugin?id=obsidian-map-view) plugin to view venues on a map).
-- **Recommended but not required:** `pdftotext` (`brew install poppler`) and `pandoc` (`brew install pandoc`) for contract extraction. The `/init-ontrade` skill will check.
-- Headless Chrome via the bundled `mcp__Claude_in_Chrome` MCP for tier-3 menu fetching (already available in your Claude Code).
+OnTradeSkills is free and open source. Fork it, customise it, build on it. If you make something cool, let me know.

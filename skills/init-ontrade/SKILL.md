@@ -1,13 +1,13 @@
 ---
 name: init-ontrade
-description: Bootstrap the on-trade Obsidian vault in the current working directory (or $ONTRADE_VAULT). Creates the folder tree (Brands, Venues, Groups, Distributors, Contracts/raw, Templates, Dashboards, Attachments), copies template and dashboard notes, initialises git, and checks that pdftotext / pandoc are available. Idempotent — safe to re-run. Use when the user says "init ontrade", "/init-ontrade", "set up the on-trade vault", or it's the first run of this plugin.
+description: Bootstrap the on-trade Obsidian vault in the current working directory (or $ONTRADE_VAULT). Creates the folder tree (Brands, Venues, Groups, Distributors, Contracts/raw, Templates, Dashboards, Attachments), copies template and dashboard notes, initialises git, and checks that pdftotext / pandoc are available. Idempotent, safe to re-run. Use when the user says "init ontrade", "/init-ontrade", "set up the on-trade vault", or it's the first run of this plugin.
 argument-hint: ""
 allowed-tools: [Bash, Read, Write]
 ---
 
 # /init-ontrade
 
-Bootstraps the on-trade vault. Idempotent — re-running fixes missing folders/templates without overwriting user content.
+Bootstraps the on-trade vault. Idempotent, re-running fixes missing folders/templates without overwriting user content.
 
 ## Steps
 
@@ -36,24 +36,24 @@ Bootstraps the on-trade vault. Idempotent — re-running fixes missing folders/t
    git -C "$VAULT" add -A
    git -C "$VAULT" commit -q -m "init: ontrade vault scaffolding" --allow-empty
    ```
-   If git is already initialised, skip — do **not** auto-commit user changes.
+   If git is already initialised, skip. Do **not** auto-commit user changes.
 
 6. **Tool check.** Report (don't fail) on the availability of:
-   - `pdftotext --version` → needed for tier-2 menu fetching and `/uploadcontract` PDFs.
-   - `pandoc --version` → optional, for `.docx` contracts.
+   - `pdftotext --version`, needed for tier-2 menu fetching and `/uploadcontract` PDFs.
+   - `pandoc --version`, optional, for `.docx` contracts.
    If missing, tell the user the install hint: `brew install poppler pandoc`.
 
 7. **Print a summary** of what was created vs already existed, then print the following Obsidian setup checklist:
 
    ```
    Obsidian setup checklist
-   ────────────────────────
-   1. Open this folder as a vault in Obsidian.
+   ========================
+   1. Open Obsidian, click "Open folder as vault", and pick this folder.
    2. Install the Dataview plugin (required for dashboards):
-      Settings → Community plugins → Browse → search "Dataview" → Install → Enable
+      Settings > Community plugins > Browse > search "Dataview" > Install > Enable.
    3. Install the Map View plugin (required to see venues on a map):
-      Settings → Community plugins → Browse → search "Map View" → Install → Enable
-      Once enabled, open any venue note — the location field will plot it on the map.
+      Settings > Community plugins > Browse > search "Map View" > Install > Enable.
+      Once enabled, open any venue note. The location field will plot it on the map.
    ```
 
 ## Notes
@@ -61,3 +61,4 @@ Bootstraps the on-trade vault. Idempotent — re-running fixes missing folders/t
 - Never delete or rename user files. The skill only adds.
 - The dashboards depend on Obsidian's Dataview plugin.
 - Venue map pins depend on Obsidian's Map View plugin. The `location` field on every venue note is a string in `"lat, lng"` format that Map View reads natively.
+- The Obsidian setup checklist text printed to the user must not contain em dashes.

@@ -164,6 +164,16 @@
               "icon": "lucide-list",
               "title": "Outline of README"
             }
+          },
+          {
+            "id": "45adc713359e3cfd",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
           }
         ]
       }
@@ -183,8 +193,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "37a995c0f74cb631",
+  "active": "ec4fe0517f8335e7",
   "lastOpenFiles": [
+    "install.sh",
     "assets/templates/contract.md",
     "assets/templates/venue.md",
     "README.md"
