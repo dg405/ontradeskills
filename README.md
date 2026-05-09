@@ -6,7 +6,7 @@ Prospect a city. Analyse a cocktail menu against your portfolio. Drop in a 30-pa
 
 OnTradeSkills is a free, open-source plugin built specifically for spirits sales teams selling into the on-trade. You don't need to be technical. You don't need to write code. You just need ten minutes and a laptop.
 
-> Watch the 3-minute demo: [https://www.youtube.com/watch?v=yCTEd_-aSyI](https://www.youtube.com/watch?v=yCTEd_-aSyI)
+> Watch the 6-minute demo: [https://www.youtube.com/watch?v=yCTEd_-aSyI](https://www.youtube.com/watch?v=yCTEd_-aSyI)
 
 ---
 
