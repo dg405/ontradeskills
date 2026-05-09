@@ -6,11 +6,11 @@ Prospect a city. Analyse a cocktail menu against your portfolio. Drop in a 30-pa
 
 OnTradeSkills is a free, open-source plugin built specifically for spirits sales teams selling into the on-trade. You don't need to be technical. You don't need to write code. You just need ten minutes and a laptop.
 
-> Watch the 3-minute demo: [YouTube link goes here]
+> Watch the 3-minute demo: [https://www.youtube.com/watch?v=yCTEd_-aSyI](https://www.youtube.com/watch?v=yCTEd_-aSyI)
 
 ---
 
-## What it can do
+## Some of the things it can do
 
 **Prospect a whole city in seconds.** Type `/discover cocktail bars in Manchester` and Claude finds venues that match your ICP, writes a profile for each one, and ranks them in a discoveries dashboard. Click into any profile to see Claude's notes and the venue plotted on a map.
 
@@ -102,7 +102,6 @@ This is the bit nobody else can do.
 Examples of things you can ask Claude to do:
 
 - "Update the venue template to include a 'last-visit' date field, and add it to every existing venue page."
-- "Change the contract analysis to also flag any minimum stock levels above 50 cases."
 - "Add a new dashboard that ranks distributors by total profit across all active contracts."
 - "Make /discover also pull each venue's Instagram handle when it can find one."
 
